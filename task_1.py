@@ -4,7 +4,7 @@
 import pickle
 import numpy as np
 from sklearn import preprocessing
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection  import train_test_split
 from tempfile import TemporaryFile
 
 class Preprocessing:
@@ -72,7 +72,7 @@ class Preprocessing:
 
         # Generate train data
         l = num_70
-        print 0,":",l
+        print (0,":",l)
         self.train_data = self.data[0:l]
         self.train_data_target = self.target[0:l]
         self.export(self.train_data)
@@ -82,7 +82,7 @@ class Preprocessing:
         if num_15_1 != 0:
             self.validation_data = self.data[l:l + num_15_1]
             self.validation_data_target = self.data[l:l + num_15_1]
-            print l, ":", l + num_15_1
+            print (l, ":", l + num_15_1)
             l = l + num_15_1
             self.export(self.validation_data)
             self.export(self.validation_data_target)
@@ -91,7 +91,7 @@ class Preprocessing:
         if num_15_2 != 0:
             self.test_data = self.data[l:l+num_15_2]
             self.test_data_target = self.data [l:l+num_15_2]
-            print l, ":", l+num_15_2
+            print (l, ":", l+num_15_2)
             l += num_15_2
             self.export(self.test_data)
             self.export(self.test_data_target)
@@ -104,3 +104,7 @@ class Preprocessing:
         with open(filename, 'wb') as f:
             pickle.dump(data, f, 2)
             pickle.dump(target, f, 2)
+
+            
+proc =  Preprocessing()
+proc.process_data()
